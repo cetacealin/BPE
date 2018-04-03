@@ -3,14 +3,23 @@
 #Print out a message addressed to them that tells them the year that they will turn 100 years old.
 #Add on to the previous program by asking the user for another number and printing out that many copies of the previous message.
 #Print out that many copies of the previous message on separate lines.
-def main():
-    name = input('Give me your name: ')
-    age = int(input('Enter your age: '))
-    copy = int(input('How many copy do you want? Enter here: '))
-    the_year = 2018 - age + 100
-    output = '\nYour name is %s, and you\'ll be 100 years old in %d '%(name, the_year)
-    if copy == 1:
-        return output
-    return copy * output
+def invalid_data(age, copy):
+	if (age or copy) <=0:
+		raise ValueError('This is invalid.')
 
-print(main())
+
+def main():
+	try:
+		name = input('Give me your name: ')
+		user_age = int(input('Give me your age: '))
+		copy_num = int(input('How many copy do you want? Enter: '))
+	except ValueError:
+		print('This is invalid.')
+	invalid_data(user_age, copy_num)
+	output_year = 2018 - user_age + 100
+	output = '\nYour name is {}, and you\'ll be 100 years old in {}'.format(name, output_year)
+	print(copy_num * output)
+
+
+if __name__ == "__main__":
+	main()
