@@ -7,10 +7,6 @@ Rock beats scissors
 Scissors beats paper
 Paper beats rock'''
 
-def twoP_Rock_Paper_Scissors():
-    player1 = input("First player: Rock, Scissors, Paper")
-    player2 = input("Second player: Rock, Scissors, Paper")
-
 def compare(player1, player2):
     if player1 == player2:
         return ("It's a tie!")
@@ -33,4 +29,7 @@ def compare(player1, player2):
         return ("Invalid input!")
         sys.exit()
 
+p1 = input("First player; Rock, Scissors, Paper: ")
+p2 = input("Second player; Rock, Scissors, Paper: ")
+print(compare(p1, p2))
 
